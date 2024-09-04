@@ -18,11 +18,11 @@ const upload = multer({storage: storage})
 
 app.set("View engine", "ejs");
 
-app.get("upload", (req, res) => {
+app.get("/upload", (req, res) => {
     res.render("upload");
 });
 
-app.post("/upload", (req, res) => {
+app.post("/upload",  upload.single("image"), (req, res) => {
     res.send("Image Upload");
 });
 
